@@ -16,6 +16,6 @@ public class Main {
             seriesStrassen.add(size, strassenExecutionTime);
         }
 
-        new Grafico(seriesStandard, seriesStrassen); // Passando as séries individuais para o construtor
+        new Grafico(seriesStandard, seriesStrassen);
     }
 }

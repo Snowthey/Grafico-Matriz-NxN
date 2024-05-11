@@ -6,7 +6,6 @@ public class StrassenMatrixMultiplication {
             return standardMatrixMultiplication(A, B);
         }
 
-        // Divide as matrizes em submatrizes menores
         int[][] A11 = new int[n/2][n/2];
         int[][] A12 = new int[n/2][n/2];
         int[][] A21 = new int[n/2][n/2];
@@ -25,7 +24,6 @@ public class StrassenMatrixMultiplication {
         divideMatrix(B, B21, n/2, 0);
         divideMatrix(B, B22, n/2, n/2);
 
-        // Calcula os produtos intermediários
         int[][] P1 = multiplyMatrices(addMatrices(A11, A22), addMatrices(B11, B22));
         int[][] P2 = multiplyMatrices(addMatrices(A21, A22), B11);
         int[][] P3 = multiplyMatrices(A11, subtractMatrices(B12, B22));
@@ -34,13 +32,11 @@ public class StrassenMatrixMultiplication {
         int[][] P6 = multiplyMatrices(subtractMatrices(A21, A11), addMatrices(B11, B12));
         int[][] P7 = multiplyMatrices(subtractMatrices(A12, A22), addMatrices(B21, B22));
 
-        // Calcula os elementos da matriz resultante
         int[][] C11 = subtractMatrices(addMatrices(addMatrices(P1, P4), P7), P5);
         int[][] C12 = addMatrices(P3, P5);
         int[][] C21 = addMatrices(P2, P4);
         int[][] C22 = subtractMatrices(addMatrices(addMatrices(P1, P3), P6), P2);
 
-        // Combina os resultados em uma única matriz
         combineMatrices(C11, C12, C21, C22, A);
 
         return A;

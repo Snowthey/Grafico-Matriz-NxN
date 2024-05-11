@@ -24,14 +24,14 @@ public class MatrixMultiplicationTimePlot {
         multiplyMatrices(matrix1, matrix2);
         long endTime = System.nanoTime();
 
-        return (endTime - startTime) / 1e9; // Convertendo para segundos
+        return (endTime - startTime) / 1e9;
     }
 
     public static int[][] generateRandomMatrix(int n) {
         int[][] matrix = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                matrix[i][j] = (int) (Math.random() * 10); // Preencher com valores aleatórios entre 0 e 9
+                matrix[i][j] = (int) (Math.random() * 10);
             }
         }
         return matrix;
